@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.dao.Examine_recordDao" >
+  <resultMap id="BaseResultMap" type="com.demo.entity.Examine_record" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="pid" property="pid" jdbcType="VARCHAR" />
+    <result column="did" property="did" jdbcType="VARCHAR" />
+    <result column="work" property="work" jdbcType="VARCHAR" />
+    <result column="examine_data" property="examineData" jdbcType="TIMESTAMP" />
+    <result column="person" property="person" jdbcType="VARCHAR" />
+    <result column="result" property="result" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, pid, did, work, examine_data, person, result
+  </sql>
+  <insert id="insertSelective" parameterType="com.demo.entity.Examine_record" >
+    insert into examine_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="did != null" >
+        did,
+      </if>
+      <if test="work != null" >
+        work,
+      </if>
+      <if test="examineData != null" >
+        examine_data,
+      </if>
+      <if test="person != null" >
+        person,
+      </if>
+      <if test="result != null" >
+        result,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="did != null" >
+        #{did,jdbcType=VARCHAR},
+      </if>
+      <if test="work != null" >
+        #{work,jdbcType=VARCHAR},
+      </if>
+      <if test="examineData != null" >
+        #{examineData,jdbcType=TIMESTAMP},
+      </if>
+      <if test="person != null" >
+        #{person,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null" >
+        #{result,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.demo.entity.Examine_record" >
+    update examine_record
+    <set >
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="did != null" >
+        did = #{did,jdbcType=VARCHAR},
+      </if>
+      <if test="work != null" >
+        work = #{work,jdbcType=VARCHAR},
+      </if>
+      <if test="examineData != null" >
+        examine_data = #{examineData,jdbcType=TIMESTAMP},
+      </if>
+      <if test="person != null" >
+        person = #{person,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null" >
+        result = #{result,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.dao.PlanDao" >
+  <resultMap id="BaseResultMap" type="com.demo.entity.Plan" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="pid" property="pid" jdbcType="VARCHAR" />
+    <result column="organ" property="organ" jdbcType="VARCHAR" />
+    <result column="safe" property="safe" jdbcType="VARCHAR" />
+    <result column="technique" property="technique" jdbcType="VARCHAR" />
+    <result column="project" property="project" jdbcType="VARCHAR" />
+    <result column="schedule" property="schedule" jdbcType="VARCHAR" />
+    <result column="defect" property="defect" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, pid, organ, safe, technique, project, schedule, defect
+  </sql>
+  <insert id="insertSelective" parameterType="com.demo.entity.Plan" >
+    insert into plan
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="organ != null" >
+        organ,
+      </if>
+      <if test="safe != null" >
+        safe,
+      </if>
+      <if test="technique != null" >
+        technique,
+      </if>
+      <if test="project != null" >
+        project,
+      </if>
+      <if test="schedule != null" >
+        schedule,
+      </if>
+      <if test="defect != null" >
+        defect,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="organ != null" >
+        #{organ,jdbcType=VARCHAR},
+      </if>
+      <if test="safe != null" >
+        #{safe,jdbcType=VARCHAR},
+      </if>
+      <if test="technique != null" >
+        #{technique,jdbcType=VARCHAR},
+      </if>
+      <if test="project != null" >
+        #{project,jdbcType=VARCHAR},
+      </if>
+      <if test="schedule != null" >
+        #{schedule,jdbcType=VARCHAR},
+      </if>
+      <if test="defect != null" >
+        #{defect,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.demo.entity.Plan" >
+    update plan
+    <set >
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="organ != null" >
+        organ = #{organ,jdbcType=VARCHAR},
+      </if>
+      <if test="safe != null" >
+        safe = #{safe,jdbcType=VARCHAR},
+      </if>
+      <if test="technique != null" >
+        technique = #{technique,jdbcType=VARCHAR},
+      </if>
+      <if test="project != null" >
+        project = #{project,jdbcType=VARCHAR},
+      </if>
+      <if test="schedule != null" >
+        schedule = #{schedule,jdbcType=VARCHAR},
+      </if>
+      <if test="defect != null" >
+        defect = #{defect,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
