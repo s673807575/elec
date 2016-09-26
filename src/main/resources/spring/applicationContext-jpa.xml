@@ -15,7 +15,7 @@
         <property name="dataSource" ref="mysqlgatewayDataSource"/>
         <property name="configLocation" value="classpath:/mybatis/mybatis-configuration.xml"/>
         <property name="typeAliasesPackage" value="com.demo.entity"/>
-        <property name="mapperLocations" value="classpath:/mybatis/*Dao.xml"/>
+        <property name="mapperLocations" value="classpath:/mybatis/*Mapper.xml"/>
     </bean>
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.demo.dao"/>

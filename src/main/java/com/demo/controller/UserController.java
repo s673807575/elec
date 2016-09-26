@@ -1,8 +1,10 @@
 package com.demo.controller;
 
+import com.demo.dao.UserDao;
 import com.demo.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 
@@ -10,12 +12,15 @@ import javax.annotation.Resource;
  * Created by 67380 on 2016/9/26.
  */
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/")
 public class UserController {
+
     @Resource
-    private UserService userService;
-    @RequestMapping("test")
+    private UserDao userDao;
+
+    @RequestMapping("/test")
     public String test(){
+
         return "test";
     }
 }
