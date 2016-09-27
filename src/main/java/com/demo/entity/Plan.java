@@ -17,6 +17,8 @@ public class Plan {
 
     private String defect;
 
+    private String pname;
+
     public Integer getId() {
         return id;
     }
@@ -79,5 +81,13 @@ public class Plan {
 
     public void setDefect(String defect) {
         this.defect = defect == null ? null : defect.trim();
+    }
+
+    public String getPname() {
+        return pname;
+    }
+
+    public void setPname(String pname) {
+        this.pname = pname == null ? null : pname.trim();
     }
 }

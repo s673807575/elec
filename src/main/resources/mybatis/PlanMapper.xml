@@ -10,9 +10,10 @@
     <result column="project" property="project" jdbcType="VARCHAR" />
     <result column="schedule" property="schedule" jdbcType="VARCHAR" />
     <result column="defect" property="defect" jdbcType="VARCHAR" />
+    <result column="pname" property="pname" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, pid, organ, safe, technique, project, schedule, defect
+    id, pid, organ, safe, technique, project, schedule, defect, pname
   </sql>
   <insert id="insertSelective" parameterType="com.demo.entity.Plan" >
     insert into plan
@@ -41,6 +42,9 @@
       <if test="defect != null" >
         defect,
       </if>
+      <if test="pname != null" >
+        pname,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -67,6 +71,9 @@
       <if test="defect != null" >
         #{defect,jdbcType=VARCHAR},
       </if>
+      <if test="pname != null" >
+        #{pname,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.demo.entity.Plan" >
@@ -92,6 +99,9 @@
       </if>
       <if test="defect != null" >
         defect = #{defect,jdbcType=VARCHAR},
+      </if>
+      <if test="pname != null" >
+        pname = #{pname,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}

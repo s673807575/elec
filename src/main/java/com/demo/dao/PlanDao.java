@@ -18,11 +18,11 @@ public interface PlanDao {
         "insert into plan (id, pid, ",
         "organ, safe, technique, ",
         "project, schedule, ",
-        "defect)",
+        "defect, pname)",
         "values (#{id,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, ",
         "#{organ,jdbcType=VARCHAR}, #{safe,jdbcType=VARCHAR}, #{technique,jdbcType=VARCHAR}, ",
         "#{project,jdbcType=VARCHAR}, #{schedule,jdbcType=VARCHAR}, ",
-        "#{defect,jdbcType=VARCHAR})"
+        "#{defect,jdbcType=VARCHAR}, #{pname,jdbcType=VARCHAR})"
     })
     int insert(Plan record);
 
@@ -30,7 +30,7 @@ public interface PlanDao {
 
     @Select({
         "select",
-        "id, pid, organ, safe, technique, project, schedule, defect",
+        "id, pid, organ, safe, technique, project, schedule, defect, pname",
         "from plan",
         "where id = #{id,jdbcType=INTEGER}"
     })
@@ -47,7 +47,8 @@ public interface PlanDao {
           "technique = #{technique,jdbcType=VARCHAR},",
           "project = #{project,jdbcType=VARCHAR},",
           "schedule = #{schedule,jdbcType=VARCHAR},",
-          "defect = #{defect,jdbcType=VARCHAR}",
+          "defect = #{defect,jdbcType=VARCHAR},",
+          "pname = #{pname,jdbcType=VARCHAR}",
         "where id = #{id,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(Plan record);
