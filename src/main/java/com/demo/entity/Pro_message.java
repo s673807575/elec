@@ -1,5 +1,7 @@
 package com.demo.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Pro_message {
@@ -11,6 +13,7 @@ public class Pro_message {
 
     private String period;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date startTime;
 
     private Date endTime;

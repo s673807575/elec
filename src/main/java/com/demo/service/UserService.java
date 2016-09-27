@@ -1,5 +1,6 @@
 package com.demo.service;
 
+import com.demo.dao.UserDao;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

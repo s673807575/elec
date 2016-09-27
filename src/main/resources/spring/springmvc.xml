@@ -13,7 +13,14 @@
        default-autowire="byName">
 
     <!-- SpringMVC相关Bean配置 -->
-
+    <mvc:annotation-driven conversion-service="conversionService" />
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <ref bean="dateConverter"/>
+            </set>
+        </property>
+    </bean>
 
     <bean id="localeResolver" class="org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver">
     </bean>
@@ -50,5 +57,7 @@
     <!--</bean>-->
 
     <mvc:resources mapping="/**" location="/resources/"></mvc:resources>
-    <mvc:annotation-driven />
+    <!--<mvc:annotation-driven />-->
+
+
 </beans>

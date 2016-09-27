@@ -1,8 +1,14 @@
 package com.demo.controller;
 
+import com.sun.beans.editors.DoubleEditor;
+import com.sun.beans.editors.FloatEditor;
+import com.sun.beans.editors.IntegerEditor;
+import com.sun.beans.editors.LongEditor;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.beans.propertyeditors.CustomNumberEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.ServletRequestDataBinder;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,15 +21,8 @@ import java.util.Date;
 @Controller
 public class BaseController {
     @InitBinder
-    public void InitBinder(HttpServletRequest request,
-                           ServletRequestDataBinder binder) {
-        // 不要删除下行注释!!! 将来"yyyy-MM-dd"将配置到properties文件中
-        // SimpleDateFormat dateFormat = new
-        // SimpleDateFormat(getText("date.format", request.getLocale()));
-        SimpleDateFormat dateFormat = new SimpleDateFormat(
-                "yyyy-MM-dd HH:mm:ss");
-        dateFormat.setLenient(false);
-        binder.registerCustomEditor(Date.class, null, new CustomDateEditor(
-                dateFormat, true));
+    protected void initBinder(WebDataBinder binder) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
     }
 }
