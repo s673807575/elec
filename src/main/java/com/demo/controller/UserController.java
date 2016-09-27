@@ -1,8 +1,10 @@
 package com.demo.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.demo.dao.UserDao;
 import com.demo.service.UserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -19,8 +21,8 @@ public class UserController {
     private UserDao userDao;
 
     @RequestMapping("/test")
-    public String test(){
+    public String test(Model model){
 
-        return "test";
+        return "test/test";
     }
 }

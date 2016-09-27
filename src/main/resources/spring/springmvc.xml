@@ -48,5 +48,7 @@
             <!--</props>-->
         <!--</property>-->
     <!--</bean>-->
+
+    <mvc:resources mapping="/**" location="/resources/"></mvc:resources>
     <mvc:annotation-driven />
 </beans>
