@@ -10,14 +10,14 @@ import org.apache.ibatis.annotations.Update;
 public interface UserDao {
     @Delete({
         "delete from user",
-        "where id = #{id,jdbcType=VARCHAR}"
+        "where id = #{id,jdbcType=INTEGER}"
     })
-    int deleteByPrimaryKey(String id);
+    int deleteByPrimaryKey(Integer id);
 
     @Insert({
         "insert into user (id, name, ",
         "password, role)",
-        "values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, ",
+        "values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, ",
         "#{password,jdbcType=VARCHAR}, #{role,jdbcType=VARCHAR})"
     })
     int insert(User record);
@@ -28,10 +28,10 @@ public interface UserDao {
         "select",
         "id, name, password, role",
         "from user",
-        "where id = #{id,jdbcType=VARCHAR}"
+        "where id = #{id,jdbcType=INTEGER}"
     })
     @ResultMap("BaseResultMap")
-    User selectByPrimaryKey(String id);
+    User selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(User record);
 
@@ -40,7 +40,7 @@ public interface UserDao {
         "set name = #{name,jdbcType=VARCHAR},",
           "password = #{password,jdbcType=VARCHAR},",
           "role = #{role,jdbcType=VARCHAR}",
-        "where id = #{id,jdbcType=VARCHAR}"
+        "where id = #{id,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(User record);
 }

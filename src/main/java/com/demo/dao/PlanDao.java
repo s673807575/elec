@@ -10,16 +10,16 @@ import org.apache.ibatis.annotations.Update;
 public interface PlanDao {
     @Delete({
         "delete from plan",
-        "where id = #{id,jdbcType=VARCHAR}"
+        "where id = #{id,jdbcType=INTEGER}"
     })
-    int deleteByPrimaryKey(String id);
+    int deleteByPrimaryKey(Integer id);
 
     @Insert({
         "insert into plan (id, pid, ",
         "organ, safe, technique, ",
         "project, schedule, ",
         "defect)",
-        "values (#{id,jdbcType=VARCHAR}, #{pid,jdbcType=VARCHAR}, ",
+        "values (#{id,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, ",
         "#{organ,jdbcType=VARCHAR}, #{safe,jdbcType=VARCHAR}, #{technique,jdbcType=VARCHAR}, ",
         "#{project,jdbcType=VARCHAR}, #{schedule,jdbcType=VARCHAR}, ",
         "#{defect,jdbcType=VARCHAR})"
@@ -32,23 +32,23 @@ public interface PlanDao {
         "select",
         "id, pid, organ, safe, technique, project, schedule, defect",
         "from plan",
-        "where id = #{id,jdbcType=VARCHAR}"
+        "where id = #{id,jdbcType=INTEGER}"
     })
     @ResultMap("BaseResultMap")
-    Plan selectByPrimaryKey(String id);
+    Plan selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Plan record);
 
     @Update({
         "update plan",
-        "set pid = #{pid,jdbcType=VARCHAR},",
+        "set pid = #{pid,jdbcType=INTEGER},",
           "organ = #{organ,jdbcType=VARCHAR},",
           "safe = #{safe,jdbcType=VARCHAR},",
           "technique = #{technique,jdbcType=VARCHAR},",
           "project = #{project,jdbcType=VARCHAR},",
           "schedule = #{schedule,jdbcType=VARCHAR},",
           "defect = #{defect,jdbcType=VARCHAR}",
-        "where id = #{id,jdbcType=VARCHAR}"
+        "where id = #{id,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(Plan record);
 }

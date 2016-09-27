@@ -10,9 +10,9 @@ import org.apache.ibatis.annotations.Update;
 public interface ReportDao {
     @Delete({
         "delete from report",
-        "where id = #{id,jdbcType=VARCHAR}"
+        "where id = #{id,jdbcType=INTEGER}"
     })
-    int deleteByPrimaryKey(String id);
+    int deleteByPrimaryKey(Integer id);
 
     @Insert({
         "insert into report (id, name, ",
@@ -20,8 +20,8 @@ public interface ReportDao {
         "device_type, text_type, ",
         "start_time, end_time, ",
         "mount, person, date)",
-        "values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, ",
-        "#{pid,jdbcType=VARCHAR}, #{rang,jdbcType=VARCHAR}, #{eleLevel,jdbcType=VARCHAR}, ",
+        "values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, ",
+        "#{pid,jdbcType=INTEGER}, #{rang,jdbcType=VARCHAR}, #{eleLevel,jdbcType=VARCHAR}, ",
         "#{deviceType,jdbcType=VARCHAR}, #{textType,jdbcType=VARCHAR}, ",
         "#{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, ",
         "#{mount,jdbcType=VARCHAR}, #{person,jdbcType=VARCHAR}, #{date,jdbcType=TIMESTAMP})"
@@ -35,17 +35,17 @@ public interface ReportDao {
         "id, name, pid, rang, ele_level, device_type, text_type, start_time, end_time, ",
         "mount, person, date",
         "from report",
-        "where id = #{id,jdbcType=VARCHAR}"
+        "where id = #{id,jdbcType=INTEGER}"
     })
     @ResultMap("BaseResultMap")
-    Report selectByPrimaryKey(String id);
+    Report selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Report record);
 
     @Update({
         "update report",
         "set name = #{name,jdbcType=VARCHAR},",
-          "pid = #{pid,jdbcType=VARCHAR},",
+          "pid = #{pid,jdbcType=INTEGER},",
           "rang = #{rang,jdbcType=VARCHAR},",
           "ele_level = #{eleLevel,jdbcType=VARCHAR},",
           "device_type = #{deviceType,jdbcType=VARCHAR},",
@@ -55,7 +55,7 @@ public interface ReportDao {
           "mount = #{mount,jdbcType=VARCHAR},",
           "person = #{person,jdbcType=VARCHAR},",
           "date = #{date,jdbcType=TIMESTAMP}",
-        "where id = #{id,jdbcType=VARCHAR}"
+        "where id = #{id,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(Report record);
 }

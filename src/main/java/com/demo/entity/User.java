@@ -1,7 +1,7 @@
 package com.demo.entity;
 
 public class User {
-    private String id;
+    private Integer id;
 
     private String name;
 
@@ -9,12 +9,12 @@ public class User {
 
     private String role;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {

@@ -10,15 +10,15 @@ import org.apache.ibatis.annotations.Update;
 public interface Examine_recordDao {
     @Delete({
         "delete from examine_record",
-        "where id = #{id,jdbcType=VARCHAR}"
+        "where id = #{id,jdbcType=INTEGER}"
     })
-    int deleteByPrimaryKey(String id);
+    int deleteByPrimaryKey(Integer id);
 
     @Insert({
         "insert into examine_record (id, pid, ",
         "did, work, examine_data, ",
         "person, result)",
-        "values (#{id,jdbcType=VARCHAR}, #{pid,jdbcType=VARCHAR}, ",
+        "values (#{id,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, ",
         "#{did,jdbcType=VARCHAR}, #{work,jdbcType=VARCHAR}, #{examineData,jdbcType=TIMESTAMP}, ",
         "#{person,jdbcType=VARCHAR}, #{result,jdbcType=VARCHAR})"
     })
@@ -30,22 +30,22 @@ public interface Examine_recordDao {
         "select",
         "id, pid, did, work, examine_data, person, result",
         "from examine_record",
-        "where id = #{id,jdbcType=VARCHAR}"
+        "where id = #{id,jdbcType=INTEGER}"
     })
     @ResultMap("BaseResultMap")
-    Examine_record selectByPrimaryKey(String id);
+    Examine_record selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Examine_record record);
 
     @Update({
         "update examine_record",
-        "set pid = #{pid,jdbcType=VARCHAR},",
+        "set pid = #{pid,jdbcType=INTEGER},",
           "did = #{did,jdbcType=VARCHAR},",
           "work = #{work,jdbcType=VARCHAR},",
           "examine_data = #{examineData,jdbcType=TIMESTAMP},",
           "person = #{person,jdbcType=VARCHAR},",
           "result = #{result,jdbcType=VARCHAR}",
-        "where id = #{id,jdbcType=VARCHAR}"
+        "where id = #{id,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(Examine_record record);
 }

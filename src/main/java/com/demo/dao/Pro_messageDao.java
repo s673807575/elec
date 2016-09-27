@@ -10,15 +10,15 @@ import org.apache.ibatis.annotations.Update;
 public interface Pro_messageDao {
     @Delete({
         "delete from pro_message",
-        "where id = #{id,jdbcType=VARCHAR}"
+        "where id = #{id,jdbcType=INTEGER}"
     })
-    int deleteByPrimaryKey(String id);
+    int deleteByPrimaryKey(Integer id);
 
     @Insert({
         "insert into pro_message (id, name, ",
         "text_type, period, ",
         "start_time, end_time)",
-        "values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, ",
+        "values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, ",
         "#{textType,jdbcType=VARCHAR}, #{period,jdbcType=VARCHAR}, ",
         "#{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP})"
     })
@@ -30,10 +30,10 @@ public interface Pro_messageDao {
         "select",
         "id, name, text_type, period, start_time, end_time",
         "from pro_message",
-        "where id = #{id,jdbcType=VARCHAR}"
+        "where id = #{id,jdbcType=INTEGER}"
     })
     @ResultMap("BaseResultMap")
-    Pro_message selectByPrimaryKey(String id);
+    Pro_message selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Pro_message record);
 
@@ -44,7 +44,7 @@ public interface Pro_messageDao {
           "period = #{period,jdbcType=VARCHAR},",
           "start_time = #{startTime,jdbcType=TIMESTAMP},",
           "end_time = #{endTime,jdbcType=TIMESTAMP}",
-        "where id = #{id,jdbcType=VARCHAR}"
+        "where id = #{id,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(Pro_message record);
 }

@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.demo.dao.ReportDao" >
   <resultMap id="BaseResultMap" type="com.demo.entity.Report" >
-    <id column="id" property="id" jdbcType="VARCHAR" />
+    <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="pid" property="pid" jdbcType="VARCHAR" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
     <result column="rang" property="rang" jdbcType="VARCHAR" />
     <result column="ele_level" property="eleLevel" jdbcType="VARCHAR" />
     <result column="device_type" property="deviceType" jdbcType="VARCHAR" />
@@ -61,13 +61,13 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=VARCHAR},
+        #{id,jdbcType=INTEGER},
       </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
       <if test="pid != null" >
-        #{pid,jdbcType=VARCHAR},
+        #{pid,jdbcType=INTEGER},
       </if>
       <if test="rang != null" >
         #{rang,jdbcType=VARCHAR},
@@ -105,7 +105,7 @@
         name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="pid != null" >
-        pid = #{pid,jdbcType=VARCHAR},
+        pid = #{pid,jdbcType=INTEGER},
       </if>
       <if test="rang != null" >
         rang = #{rang,jdbcType=VARCHAR},
@@ -135,6 +135,6 @@
         date = #{date,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

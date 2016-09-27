@@ -3,7 +3,7 @@ package com.demo.entity;
 import java.util.Date;
 
 public class Pro_message {
-    private String id;
+    private Integer id;
 
     private String name;
 
@@ -15,12 +15,12 @@ public class Pro_message {
 
     private Date endTime;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {

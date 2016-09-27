@@ -10,15 +10,15 @@ import org.apache.ibatis.annotations.Update;
 public interface DeviceDao {
     @Delete({
         "delete from device",
-        "where id = #{id,jdbcType=VARCHAR}"
+        "where id = #{id,jdbcType=INTEGER}"
     })
-    int deleteByPrimaryKey(String id);
+    int deleteByPrimaryKey(Integer id);
 
     @Insert({
         "insert into device (id, name, ",
         "type, ele_level, ",
         "rang)",
-        "values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, ",
+        "values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, ",
         "#{type,jdbcType=VARCHAR}, #{eleLevel,jdbcType=VARCHAR}, ",
         "#{rang,jdbcType=VARCHAR})"
     })
@@ -30,10 +30,10 @@ public interface DeviceDao {
         "select",
         "id, name, type, ele_level, rang",
         "from device",
-        "where id = #{id,jdbcType=VARCHAR}"
+        "where id = #{id,jdbcType=INTEGER}"
     })
     @ResultMap("BaseResultMap")
-    Device selectByPrimaryKey(String id);
+    Device selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Device record);
 
@@ -43,7 +43,7 @@ public interface DeviceDao {
           "type = #{type,jdbcType=VARCHAR},",
           "ele_level = #{eleLevel,jdbcType=VARCHAR},",
           "rang = #{rang,jdbcType=VARCHAR}",
-        "where id = #{id,jdbcType=VARCHAR}"
+        "where id = #{id,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(Device record);
 }

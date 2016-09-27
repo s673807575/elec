@@ -3,11 +3,11 @@ package com.demo.entity;
 import java.util.Date;
 
 public class Report {
-    private String id;
+    private Integer id;
 
     private String name;
 
-    private String pid;
+    private Integer pid;
 
     private String rang;
 
@@ -27,12 +27,12 @@ public class Report {
 
     private Date date;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -43,12 +43,12 @@ public class Report {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getPid() {
+    public Integer getPid() {
         return pid;
     }
 
-    public void setPid(String pid) {
-        this.pid = pid == null ? null : pid.trim();
+    public void setPid(Integer pid) {
+        this.pid = pid;
     }
 
     public String getRang() {
