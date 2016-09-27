@@ -8,9 +8,11 @@
     <result column="period" property="period" jdbcType="VARCHAR" />
     <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
     <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="devicemess" property="devicemess" jdbcType="VARCHAR" />
+    <result column="isqualified" property="isqualified" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, text_type, period, start_time, end_time
+    id, name, text_type, period, start_time, end_time, devicemess, isqualified
   </sql>
   <insert id="insertSelective" parameterType="com.demo.entity.Pro_message" >
     insert into pro_message
@@ -33,6 +35,12 @@
       <if test="endTime != null" >
         end_time,
       </if>
+      <if test="devicemess != null" >
+        devicemess,
+      </if>
+      <if test="isqualified != null" >
+        isqualified,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -53,6 +61,12 @@
       <if test="endTime != null" >
         #{endTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="devicemess != null" >
+        #{devicemess,jdbcType=VARCHAR},
+      </if>
+      <if test="isqualified != null" >
+        #{isqualified,jdbcType=INTEGER},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.demo.entity.Pro_message" >
@@ -72,6 +86,12 @@
       </if>
       <if test="endTime != null" >
         end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="devicemess != null" >
+        devicemess = #{devicemess,jdbcType=VARCHAR},
+      </if>
+      <if test="isqualified != null" >
+        isqualified = #{isqualified,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}

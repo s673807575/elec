@@ -15,6 +15,10 @@ public class Pro_message {
 
     private Date endTime;
 
+    private String devicemess;
+
+    private Integer isqualified;
+
     public Integer getId() {
         return id;
     }
@@ -61,5 +65,21 @@ public class Pro_message {
 
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
+    }
+
+    public String getDevicemess() {
+        return devicemess;
+    }
+
+    public void setDevicemess(String devicemess) {
+        this.devicemess = devicemess == null ? null : devicemess.trim();
+    }
+
+    public Integer getIsqualified() {
+        return isqualified;
+    }
+
+    public void setIsqualified(Integer isqualified) {
+        this.isqualified = isqualified;
     }
 }

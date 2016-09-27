@@ -17,10 +17,12 @@ public interface Pro_messageDao {
     @Insert({
         "insert into pro_message (id, name, ",
         "text_type, period, ",
-        "start_time, end_time)",
+        "start_time, end_time, ",
+        "devicemess, isqualified)",
         "values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, ",
         "#{textType,jdbcType=VARCHAR}, #{period,jdbcType=VARCHAR}, ",
-        "#{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP})"
+        "#{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, ",
+        "#{devicemess,jdbcType=VARCHAR}, #{isqualified,jdbcType=INTEGER})"
     })
     int insert(Pro_message record);
 
@@ -28,7 +30,7 @@ public interface Pro_messageDao {
 
     @Select({
         "select",
-        "id, name, text_type, period, start_time, end_time",
+        "id, name, text_type, period, start_time, end_time, devicemess, isqualified",
         "from pro_message",
         "where id = #{id,jdbcType=INTEGER}"
     })
@@ -43,7 +45,9 @@ public interface Pro_messageDao {
           "text_type = #{textType,jdbcType=VARCHAR},",
           "period = #{period,jdbcType=VARCHAR},",
           "start_time = #{startTime,jdbcType=TIMESTAMP},",
-          "end_time = #{endTime,jdbcType=TIMESTAMP}",
+          "end_time = #{endTime,jdbcType=TIMESTAMP},",
+          "devicemess = #{devicemess,jdbcType=VARCHAR},",
+          "isqualified = #{isqualified,jdbcType=INTEGER}",
         "where id = #{id,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(Pro_message record);
