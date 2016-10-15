@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import java.util.List;
+
 public interface Examine_recordDao {
     @Delete({
         "delete from examine_record",
@@ -34,6 +36,24 @@ public interface Examine_recordDao {
     })
     @ResultMap("BaseResultMap")
     Examine_record selectByPrimaryKey(Integer id);
+
+    @Select({
+            "select",
+            "*",
+            "from examine_record",
+            "where pid = #{pid,jdbcType=INTEGER}"
+    })
+    @ResultMap("BaseResultMap")
+    Examine_record selectBypid(Integer pid);
+
+    @Select({
+            "select",
+            "*",
+            "from examine_record,job",
+            "where job.pid = #{pid,jdbcType=INTEGER} and job.jid=examine_record.pid"
+    })
+    @ResultMap("BaseResultMap")
+    List<Examine_record> selectByAll(Integer pid);
 
     int updateByPrimaryKeySelective(Examine_record record);
 

@@ -34,10 +34,15 @@
 <script src="/js/matrix.tables.js"></script>
 
 <script type="text/javascript">
+
+
+        var _index=$("#_index").val();
+
+        $(".li_"+_index).addClass("active").siblings().removeClass("active");
+
     // This function is called from the pop-up menus to transfer to
     // a different page. Ignore if the value returned is a null string:
     function goPage (newURL) {
-
         // if url is empty, skip the menu dividers and reset the menu selection to default
         if (newURL != "") {
 
@@ -51,7 +56,6 @@
             }
         }
     }
-
     // resets the menu selection upon entry to this page:
     function resetMenu() {
         document.gomenu.selector.selectedIndex = 2;

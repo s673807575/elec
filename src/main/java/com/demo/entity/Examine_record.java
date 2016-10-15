@@ -11,11 +11,22 @@ public class Examine_record {
 
     private String work;
 
-    private Date examineData;
+    private String examineData;
 
     private String person;
 
     private String result;
+
+    private Job job;
+
+
+    public Job getJob() {
+        return job;
+    }
+
+    public void setJob(Job job) {
+        this.job = job;
+    }
 
     public Integer getId() {
         return id;
@@ -49,11 +60,11 @@ public class Examine_record {
         this.work = work == null ? null : work.trim();
     }
 
-    public Date getExamineData() {
+    public String getExamineData() {
         return examineData;
     }
 
-    public void setExamineData(Date examineData) {
+    public void setExamineData(String examineData) {
         this.examineData = examineData;
     }
 

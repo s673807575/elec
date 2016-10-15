@@ -3,9 +3,9 @@ package com.demo.entity;
 import java.util.Date;
 
 public class Report {
-    private Integer id;
+    private Integer rid;
 
-    private String name;
+    private String rname;
 
     private Integer pid;
 
@@ -23,24 +23,26 @@ public class Report {
 
     private String mount;
 
-    private String person;
+    private Integer person;
 
     private Date date;
 
-    public Integer getId() {
-        return id;
+    private Integer status;
+
+    public Integer getRid() {
+        return rid;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setRid(Integer rid) {
+        this.rid = rid;
     }
 
-    public String getName() {
-        return name;
+    public String getRname() {
+        return rname;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setRname(String rname) {
+        this.rname = rname == null ? null : rname.trim();
     }
 
     public Integer getPid() {
@@ -107,12 +109,12 @@ public class Report {
         this.mount = mount == null ? null : mount.trim();
     }
 
-    public String getPerson() {
+    public Integer getPerson() {
         return person;
     }
 
-    public void setPerson(String person) {
-        this.person = person == null ? null : person.trim();
+    public void setPerson(Integer person) {
+        this.person = person;
     }
 
     public Date getDate() {
@@ -121,5 +123,13 @@ public class Report {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

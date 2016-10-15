@@ -56,6 +56,7 @@
         <!--</property>-->
     <!--</bean>-->
 
+    <mvc:resources mapping="/ueditor/**" location="/ueditor/"></mvc:resources>
     <mvc:resources mapping="/**" location="/resources/"></mvc:resources>
     <!--<mvc:annotation-driven />-->
 

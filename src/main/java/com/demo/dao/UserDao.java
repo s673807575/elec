@@ -33,6 +33,15 @@ public interface UserDao {
     @ResultMap("BaseResultMap")
     User selectByPrimaryKey(Integer id);
 
+    @Select({
+            "select",
+            "*",
+            "from user",
+            "where name = #{0} and password=#{1}"
+    })
+    @ResultMap("BaseResultMap")
+    User login(String name,String pwd);
+
     int updateByPrimaryKeySelective(User record);
 
     @Update({

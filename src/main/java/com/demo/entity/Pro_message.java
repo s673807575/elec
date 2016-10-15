@@ -1,6 +1,6 @@
 package com.demo.entity;
 
-import org.springframework.format.annotation.DateTimeFormat;
+
 
 import java.util.Date;
 
@@ -13,7 +13,6 @@ public class Pro_message {
 
     private String period;
 
-    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date startTime;
 
     private Date endTime;
@@ -21,6 +20,17 @@ public class Pro_message {
     private String devicemess;
 
     private Integer isqualified;
+
+    private Report report;
+
+
+    public Report getReport() {
+        return report;
+    }
+
+    public void setReport(Report report) {
+        this.report = report;
+    }
 
     public Integer getId() {
         return id;

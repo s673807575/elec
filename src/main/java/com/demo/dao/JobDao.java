@@ -7,12 +7,21 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-public interface JobMapper {
+import java.util.List;
+
+public interface JobDao {
     @Delete({
         "delete from job",
         "where jid = #{jid,jdbcType=INTEGER}"
     })
     int deleteByPrimaryKey(Integer jid);
+
+    @Select({
+            "select * from job,pro_message p",
+            "where pid = #{pid,jdbcType=INTEGER} and p.id=job.pid"
+    })
+    @ResultMap("BaseResultMap")
+    List<Job> selectByPro(Integer pid);
 
     @Insert({
         "insert into job (jid, pid, ",

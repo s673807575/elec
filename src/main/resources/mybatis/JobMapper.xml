@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.demo.dao.JobMapper" >
+<mapper namespace="com.demo.dao.JobDao" >
   <resultMap id="BaseResultMap" type="com.demo.entity.Job" >
     <id column="jid" property="jid" jdbcType="INTEGER" />
     <result column="pid" property="pid" jdbcType="INTEGER" />
     <result column="jcontent" property="jcontent" jdbcType="VARCHAR" />
     <result column="jstatus" property="jstatus" jdbcType="INTEGER" />
+    <association property="pro_message"  javaType="com.demo.entity.Pro_message">
+      <id column="id" property="id" jdbcType="INTEGER" />
+      <result column="name" property="name" jdbcType="VARCHAR" />
+      <result column="text_type" property="textType" jdbcType="VARCHAR" />
+      <result column="period" property="period" jdbcType="VARCHAR" />
+      <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+      <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+      <result column="devicemess" property="devicemess" jdbcType="VARCHAR" />
+      <result column="isqualified" property="isqualified" jdbcType="INTEGER" />
+    </association>
   </resultMap>
   <sql id="Base_Column_List" >
     jid, pid, jcontent, jstatus

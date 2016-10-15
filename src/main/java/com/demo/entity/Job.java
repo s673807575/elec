@@ -9,6 +9,16 @@ public class Job {
 
     private Integer jstatus;
 
+    private  Pro_message  pro_message;
+
+    public Pro_message getPro_message() {
+        return pro_message;
+    }
+
+    public void setPro_message(Pro_message pro_message) {
+        this.pro_message = pro_message;
+    }
+
     public Integer getJid() {
         return jid;
     }

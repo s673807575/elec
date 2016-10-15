@@ -10,21 +10,23 @@ import org.apache.ibatis.annotations.Update;
 public interface ReportDao {
     @Delete({
         "delete from report",
-        "where id = #{id,jdbcType=INTEGER}"
+        "where rid = #{rid,jdbcType=INTEGER}"
     })
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Integer rid);
 
     @Insert({
-        "insert into report (id, name, ",
+        "insert into report (rid, rname, ",
         "pid, rang, ele_level, ",
         "device_type, text_type, ",
         "start_time, end_time, ",
-        "mount, person, date)",
-        "values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, ",
+        "mount, person, date, ",
+        "status)",
+        "values (#{rid,jdbcType=INTEGER}, #{rname,jdbcType=VARCHAR}, ",
         "#{pid,jdbcType=INTEGER}, #{rang,jdbcType=VARCHAR}, #{eleLevel,jdbcType=VARCHAR}, ",
         "#{deviceType,jdbcType=VARCHAR}, #{textType,jdbcType=VARCHAR}, ",
         "#{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, ",
-        "#{mount,jdbcType=VARCHAR}, #{person,jdbcType=VARCHAR}, #{date,jdbcType=TIMESTAMP})"
+        "#{mount,jdbcType=VARCHAR}, #{person,jdbcType=INTEGER}, #{date,jdbcType=TIMESTAMP}, ",
+        "#{status,jdbcType=INTEGER})"
     })
     int insert(Report record);
 
@@ -32,19 +34,28 @@ public interface ReportDao {
 
     @Select({
         "select",
-        "id, name, pid, rang, ele_level, device_type, text_type, start_time, end_time, ",
-        "mount, person, date",
+        "rid, rname, pid, rang, ele_level, device_type, text_type, start_time, end_time, ",
+        "mount, person, date, status",
         "from report",
-        "where id = #{id,jdbcType=INTEGER}"
+        "where rid = #{rid,jdbcType=INTEGER}"
     })
     @ResultMap("BaseResultMap")
-    Report selectByPrimaryKey(Integer id);
+    Report selectByPrimaryKey(Integer rid);
+
+    @Select({
+            "select",
+            "*",
+            "from report",
+            "where pid = #{pid,jdbcType=INTEGER}"
+    })
+    @ResultMap("BaseResultMap")
+    Report selectBypid(Integer pid);
 
     int updateByPrimaryKeySelective(Report record);
 
     @Update({
         "update report",
-        "set name = #{name,jdbcType=VARCHAR},",
+        "set rname = #{rname,jdbcType=VARCHAR},",
           "pid = #{pid,jdbcType=INTEGER},",
           "rang = #{rang,jdbcType=VARCHAR},",
           "ele_level = #{eleLevel,jdbcType=VARCHAR},",
@@ -53,9 +64,10 @@ public interface ReportDao {
           "start_time = #{startTime,jdbcType=TIMESTAMP},",
           "end_time = #{endTime,jdbcType=TIMESTAMP},",
           "mount = #{mount,jdbcType=VARCHAR},",
-          "person = #{person,jdbcType=VARCHAR},",
-          "date = #{date,jdbcType=TIMESTAMP}",
-        "where id = #{id,jdbcType=INTEGER}"
+          "person = #{person,jdbcType=INTEGER},",
+          "date = #{date,jdbcType=TIMESTAMP},",
+          "status = #{status,jdbcType=INTEGER}",
+        "where rid = #{rid,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(Report record);
 }

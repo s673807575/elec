@@ -10,6 +10,21 @@
     <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
     <result column="devicemess" property="devicemess" jdbcType="VARCHAR" />
     <result column="isqualified" property="isqualified" jdbcType="INTEGER" />
+    <association property="report"  javaType="com.demo.entity.Report">
+      <id column="rid" property="rid" jdbcType="INTEGER" />
+      <result column="rname" property="rname" jdbcType="VARCHAR" />
+      <result column="pid" property="pid" jdbcType="INTEGER" />
+      <result column="rang" property="rang" jdbcType="VARCHAR" />
+      <result column="ele_level" property="eleLevel" jdbcType="VARCHAR" />
+      <result column="device_type" property="deviceType" jdbcType="VARCHAR" />
+      <result column="text_type" property="textType" jdbcType="VARCHAR" />
+      <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+      <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+      <result column="mount" property="mount" jdbcType="VARCHAR" />
+      <result column="person" property="person" jdbcType="INTEGER" />
+      <result column="date" property="date" jdbcType="TIMESTAMP" />
+      <result column="status" property="status" jdbcType="INTEGER" />
+    </association>
   </resultMap>
   <sql id="Base_Column_List" >
     id, name, text_type, period, start_time, end_time, devicemess, isqualified

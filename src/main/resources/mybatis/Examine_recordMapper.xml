@@ -6,9 +6,15 @@
     <result column="pid" property="pid" jdbcType="INTEGER" />
     <result column="did" property="did" jdbcType="VARCHAR" />
     <result column="work" property="work" jdbcType="VARCHAR" />
-    <result column="examine_data" property="examineData" jdbcType="TIMESTAMP" />
+    <result column="examine_data" property="examineData" jdbcType="VARCHAR" />
     <result column="person" property="person" jdbcType="VARCHAR" />
     <result column="result" property="result" jdbcType="VARCHAR" />
+    <association property="job"  javaType="com.demo.entity.Job">
+      <id column="jid" property="jid" jdbcType="INTEGER" />
+      <result column="pid" property="pid" jdbcType="INTEGER" />
+      <result column="jcontent" property="jcontent" jdbcType="VARCHAR" />
+      <result column="jstatus" property="jstatus" jdbcType="INTEGER" />
+    </association>
   </resultMap>
   <sql id="Base_Column_List" >
     id, pid, did, work, examine_data, person, result
@@ -75,7 +81,7 @@
         work = #{work,jdbcType=VARCHAR},
       </if>
       <if test="examineData != null" >
-        examine_data = #{examineData,jdbcType=TIMESTAMP},
+        examine_data = #{examineData,jdbcType=VARCHAR},
       </if>
       <if test="person != null" >
         person = #{person,jdbcType=VARCHAR},

@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import java.util.List;
+
 public interface Pro_messageDao {
     @Delete({
         "delete from pro_message",
@@ -36,6 +38,30 @@ public interface Pro_messageDao {
     })
     @ResultMap("BaseResultMap")
     Pro_message selectByPrimaryKey(Integer id);
+
+    @Select({
+          "SELECT * FROM  pro_message LEFT  JOIN report ON pro_message.id=report.pid where report.status=2"
+    })
+    @ResultMap("BaseResultMap")
+    List<Pro_message> selectALLon();
+
+    @Select({
+            "SELECT * FROM  pro_message LEFT  JOIN report ON pro_message.id=report.pid where report.status=1"
+    })
+    @ResultMap("BaseResultMap")
+    List<Pro_message> selectALLsucc();
+
+    @Select({
+            "SELECT * FROM  pro_message LEFT  JOIN report ON pro_message.id=report.pid where report.status=3"
+    })
+    @ResultMap("BaseResultMap")
+    List<Pro_message> selectALLfalue();
+
+    @Select({
+            "SELECT * FROM  pro_message LEFT  JOIN report ON pro_message.id=report.pid"
+    })
+    @ResultMap("BaseResultMap")
+    List<Pro_message> selectALL();
 
     int updateByPrimaryKeySelective(Pro_message record);
 
