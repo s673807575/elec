@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import java.util.List;
+
 public interface DeviceDao {
     @Delete({
         "delete from device",
@@ -34,6 +36,14 @@ public interface DeviceDao {
     })
     @ResultMap("BaseResultMap")
     Device selectByPrimaryKey(Integer id);
+
+    @Select({
+            "select",
+            "id, name, type, ele_level, rang",
+            "from device"
+    })
+    @ResultMap("BaseResultMap")
+    List<Device> selectAll();
 
     int updateByPrimaryKeySelective(Device record);
 

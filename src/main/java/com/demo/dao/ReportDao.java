@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import java.util.List;
+
 public interface ReportDao {
     @Delete({
         "delete from report",
@@ -41,6 +43,16 @@ public interface ReportDao {
     })
     @ResultMap("BaseResultMap")
     Report selectByPrimaryKey(Integer rid);
+
+    @Select({
+            "select",
+            "rid, rname, pid, rang, ele_level, device_type, text_type, start_time, end_time, ",
+            "mount, person, date, status",
+            "from report",
+            "where status = 2"
+    })
+    @ResultMap("BaseResultMap")
+    List<Report> selectunpass();
 
     @Select({
             "select",
