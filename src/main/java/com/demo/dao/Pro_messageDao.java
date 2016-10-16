@@ -30,6 +30,8 @@ public interface Pro_messageDao {
 
     int insertSelective(Pro_message record);
 
+
+
     @Select({
         "select",
         "id, name, text_type, period, start_time, end_time, devicemess, isqualified",
@@ -77,4 +79,34 @@ public interface Pro_messageDao {
         "where id = #{id,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(Pro_message record);
+
+    @Select({
+            "select",
+            "id, name, text_type, period, start_time, end_time, devicemess, isqualified",
+            "from pro_message",
+            "where isqualified = 0"
+    })
+    @ResultMap("BaseResultMap")
+    List<Pro_message> selectunpass();
+
+
+    @Select({
+            "select",
+            "id, name, text_type, period, start_time, end_time, devicemess, isqualified",
+            "from pro_message",
+            "where isqualified = 1"
+    })
+    @ResultMap("BaseResultMap")
+    List<Pro_message> selectnopass();
+
+    @Select({
+            "select",
+            "id, name, text_type, period, start_time, end_time, devicemess, isqualified",
+            "from pro_message",
+            "where isqualified = 2"
+    })
+    @ResultMap("BaseResultMap")
+    List<Pro_message> selectpass();
+
+
 }
