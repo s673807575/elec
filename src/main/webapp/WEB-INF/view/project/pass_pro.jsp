@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../commpage/top.jsp"></jsp:include>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="container-fluid">
     <hr>
@@ -27,8 +28,8 @@
                                 <td>${a.id}</td>
                                 <td>${a.name}</td>
                                 <td>${a.textType}</td>
-                                <td>${a.startTime}</td>
-                                <td>${a.endTime}</td>
+                                <td><fmt:formatDate value="${a.startTime}" pattern="yyyy年MM月dd日 hh:mm:ss"/></td>
+                                <td><fmt:formatDate value="${a.endTime}" pattern="yyyy年MM月dd日 hh:mm:ss"/></td>
                                 <td>${a.period}</td>
                                 <td>${a.devicemess}</td>
                                 <td>已通过</td>

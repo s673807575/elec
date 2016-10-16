@@ -1,8 +1,6 @@
 package com.demo.controller;
 
-import com.demo.dao.DeviceDao;
-import com.demo.dao.ReportDao;
-import com.demo.dao.UserDao;
+import com.demo.dao.*;
 import com.demo.entity.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +24,7 @@ public class ProjectController {
     @Resource
     private UserDao userDao;
     @Resource
-    private UserDao examine_recordDao;
+    private Examine_recordDao examine_recordDao;
     @RequestMapping("/test")
     public String test(Model model){
     List<Device> devlist=devdao.selectAll();
@@ -139,17 +137,17 @@ public class ProjectController {
         model.addAttribute("a",pass_pro);
         return "project/pass_pro";
     }
-//    @RequestMapping("/detail")
-//    public String detail(Model model,int pid){
-//        Pro_message pro_message=pro_dao.selectByPrimaryKey(pid);
-//        Report report=rep_dao.selectBypid(pid);
-//        User user=userDao.selectByPrimaryKey(report.getPerson());
-//        pro_message.setReport(report);
-//        List<Examine_record> examine_records=examine_recordDao.selectByAll(pid);
-//        model.addAttribute("pro_message",pro_message);
-//        model.addAttribute("exm",examine_records);
-//        model.addAttribute("cus",user);
-//        return "test/detail";
-//    }
+    @RequestMapping("/detail")
+    public String detail(Model model,int pid){
+        Pro_message pro_message=pro_dao.selectByPrimaryKey(pid);
+        Report report=rep_dao.selectBypid(pid);
+        User user=userDao.selectByPrimaryKey(report.getPerson());
+        pro_message.setReport(report);
+        List<Examine_record> examine_records=examine_recordDao.selectByAll(pid);
+        model.addAttribute("pro_message",pro_message);
+        model.addAttribute("exm",examine_records);
+        model.addAttribute("cus",user);
+        return "project/detail";
+    }
 
 }

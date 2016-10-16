@@ -5,28 +5,28 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <script type="text/javascript">
     function detail(pid) {
-        window.location.href="/test/detail?pid="+pid;
+        window.location.href="/project/detail?pid="+pid;
     }
-    $(function(){
-        $(".btn-danger").click(function(){
-            var btn = $(this).val()
-
-            var result = confirm('确认不通过吗？');
-            if(result){
-                window.location.href='/project/checker_nopass2?id='+btn;
-                alert('该项目已成功回退！');
-            }
-        });
-        $(".btn-primary").click(function(){
-            var btn = $(this).val()
-
-            var result = confirm('确认通过吗？');
-            if(result){
-                window.location.href='/project/checker_pass2?id='+btn;
-                alert('该项目已成功进入！');
-            }
-        });
-    })
+//    $(function(){
+//        $(".btn-danger").click(function(){
+//            var btn = $(this).val()
+//
+//            var result = confirm('确认不通过吗？');
+//            if(result){
+//                window.location.href='/project/checker_nopass2?id='+btn;
+//                alert('该项目已成功回退！');
+//            }
+//        });
+//        $(".btn-primary").click(function(){
+//            var btn = $(this).val()
+//
+//            var result = confirm('确认通过吗？');
+//            if(result){
+//                window.location.href='/project/checker_pass2?id='+btn;
+//                alert('该项目已成功进入！');
+//            }
+//        });
+//    })
 </script>
 <div class="container-fluid">
     <hr>
