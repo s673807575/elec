@@ -12,7 +12,7 @@
 </head>
 <body>
 <div>
-    <form action="/plan/addplan" method="get">
+    <form action="/plan/addplan" method="post">
     <table align="left" style="width: 100%">
         <tr align="center" >
             <td colspan="2">新方案</td>

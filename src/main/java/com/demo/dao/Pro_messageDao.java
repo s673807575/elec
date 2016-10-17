@@ -1,6 +1,7 @@
 package com.demo.dao;
 
 import com.demo.entity.Pro_message;
+import com.demo.entity.Report;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.ResultMap;
@@ -64,6 +65,8 @@ public interface Pro_messageDao {
     })
     @ResultMap("BaseResultMap")
     List<Pro_message> selectALL();
+
+    List<Pro_message> query(Report report);
 
     @Select({
             "SELECT * FROM  pro_message left  JOIN report ON pro_message.id=report.pid where isqualified>=2"

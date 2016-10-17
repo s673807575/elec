@@ -62,7 +62,7 @@ public class PlanController {
         plan1.setTechnique(technique);
         plan1.setSafe(safe);
         plan1.setSchedule(schedule);
-        planDao.insert(plan1);
+        planDao.insertSelective(plan1);
         List<Plan> plan=planDao.selectALL();
         model.addAttribute("plan",plan);
         return "plan/test";

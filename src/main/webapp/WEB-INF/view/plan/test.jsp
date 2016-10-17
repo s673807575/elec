@@ -14,6 +14,7 @@
             <tr>
                 <td>${i.pid}</td>
                 <td>${i.pname}</td>
+                <td><a href="/plan/Singlequery?id=${i.id}">详细查询</a></td>
                 <td><a href="/plan/delete?id=${i.id}">删除</a></td>
                 <td><a href="/plan/upload?id=${i.id}">指导书文档上传</a></td>
                 <td><a href="${i.pupload}">指导书下载</a></td>

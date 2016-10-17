@@ -109,6 +109,16 @@ public class UserController{
         return "test/reportmanager";
     }
 
+    @RequestMapping("/query")
+    public String query(Model model,Report report){
+        List<Pro_message> pro_messages;
+
+            pro_messages=pro_messageDao.query(report);
+        model.addAttribute("pro_message",pro_messages);
+
+        return "test/reportmanager";
+    }
+
     @RequestMapping("/form")
     public String form(Model model,int jid){
         Job job=jobDao.selectByPrimaryKey(jid);

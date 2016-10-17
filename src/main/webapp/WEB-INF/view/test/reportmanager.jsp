@@ -7,18 +7,17 @@
         <div>
             <form name="query" id="form1" method="post" action="query">
                 搜索:设备范围:
-                <input name="company" type="text" id="bianhao" />
+                <input name="rang" type="text" id="rang"  style="width: 50px"/>
                 电压等级
-                <input name="jobname" type="text" id="mingcheng" />
+                <input name="eleLevel" type="text" id="eleLevel" style="width: 50px"/>
                 设备类型
-                <input name="jobname" type="text" id="mingcheng" />
+                <input name="deviceType" type="text" id="deviceType" style="width: 50px" />
                 试验类型
-                <input name="jobname" type="text" id="mingcheng" />
+                <input name="textType" type="text" id="textType" style="width: 50px" />
                 试验日期
-                <input name="jobname" type="text" id="mingcheng" />
-                <input name="jobname" type="text" id="mingcheng" />
+                <input name="startTime" type="date" id="startTime" />
+                <input name="endTime" type="date" id="endTime" />
                 <input type="submit" name="Submit" value="查找" />
-                <input type="button" name="but" value="新增" onclick="add();"/>
             </form>
         </div>
         <table id="tablepage" style="width: 100%">
@@ -74,8 +73,10 @@
         window.location.href="/report?pid="+pid;
     }
     $("#tablepage").dataTable({
+        bFilter: false,
+        bLengthChange: false,
         "bJQueryUI": true,
-        "sPaginationType": "full_numbers",
+        "sPaginationType": "full_numbers"
 
     });
 </script>
