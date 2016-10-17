@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import java.util.List;
+
 public interface PlanDao {
     @Delete({
         "delete from plan",
@@ -36,6 +38,15 @@ public interface PlanDao {
     })
     @ResultMap("BaseResultMap")
     Plan selectByPrimaryKey(Integer id);
+
+    @Select({
+            "select",
+            "*",
+            "from plan",
+
+    })
+    @ResultMap("BaseResultMap")
+    List<Plan> selectALL();
 
     int updateByPrimaryKeySelective(Plan record);
 

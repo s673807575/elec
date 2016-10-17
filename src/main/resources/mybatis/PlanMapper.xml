@@ -11,6 +11,7 @@
     <result column="schedule" property="schedule" jdbcType="VARCHAR" />
     <result column="defect" property="defect" jdbcType="VARCHAR" />
     <result column="pname" property="pname" jdbcType="VARCHAR" />
+    <result column="pupload" property="pupload" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, pid, organ, safe, technique, project, schedule, defect, pname
@@ -74,6 +75,9 @@
       <if test="pname != null" >
         #{pname,jdbcType=VARCHAR},
       </if>
+      <if test="pupload != null" >
+        #{pupload,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.demo.entity.Plan" >
@@ -102,6 +106,9 @@
       </if>
       <if test="pname != null" >
         pname = #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="pupload != null" >
+        pupload = #{pupload,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}

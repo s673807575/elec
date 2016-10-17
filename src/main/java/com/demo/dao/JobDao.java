@@ -27,7 +27,7 @@ public interface JobDao {
             "select * from job"
     })
     @ResultMap("BaseResultMap")
-    List<Job> selecALL();
+    List<Job> selectALL();
 
     @Insert({
         "insert into job (jid, pid, ",

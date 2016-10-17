@@ -49,7 +49,9 @@ public class UserController{
             return "/project/addview";
         else if(user.getRole().equals("3"))
             return "redirect:/project/checker";
-        return "test";
+        else
+            return "redirect:/plan/query";
+
     }
 
 

@@ -19,6 +19,16 @@ public class Plan {
 
     private String pname;
 
+    private String pupload;
+
+    public String getPupload() {
+        return pupload;
+    }
+
+    public void setPupload(String pupload) {
+        this.pupload = pupload;
+    }
+
     public Integer getId() {
         return id;
     }
