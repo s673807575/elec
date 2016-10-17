@@ -1,9 +1,26 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<jsp:include page="../commpage/top.jsp"></jsp:include>
+<jsp:include page="top.jsp"></jsp:include>
 <input type="hidden" id="_index" value="2">
     <div>
+        <div>
+            <form name="query" id="form1" method="post" action="query">
+                搜索:设备范围:
+                <input name="company" type="text" id="bianhao" />
+                电压等级
+                <input name="jobname" type="text" id="mingcheng" />
+                设备类型
+                <input name="jobname" type="text" id="mingcheng" />
+                试验类型
+                <input name="jobname" type="text" id="mingcheng" />
+                试验日期
+                <input name="jobname" type="text" id="mingcheng" />
+                <input name="jobname" type="text" id="mingcheng" />
+                <input type="submit" name="Submit" value="查找" />
+                <input type="button" name="but" value="新增" onclick="add();"/>
+            </form>
+        </div>
         <table id="tablepage" style="width: 100%">
             <thead>
             <tr>
@@ -26,7 +43,7 @@
                     <td>${i.report.rang}</td>
                     <td>${i.report.eleLevel}</td>
                     <td>${i.report.deviceType}</td>
-                    <td>${i.report.textType}</td>
+                    <td>${i.textType}</td>
                     <td><fmt:formatDate value="${i.report.date}" pattern="yyyy年MM月dd日 hh:mm:ss"/></td>
                    <td> <c:if test="${i.report.status==1}">
                        审阅通过
@@ -48,7 +65,7 @@
             </c:forEach>
         </table>
     </div>
-<jsp:include page="../commpage/bottom.jsp"></jsp:include>
+<jsp:include page="bottom.jsp"></jsp:include>
 <script>
     function detail(pid) {
         window.location.href="/detail?pid="+pid;
@@ -59,6 +76,6 @@
     $("#tablepage").dataTable({
         "bJQueryUI": true,
         "sPaginationType": "full_numbers",
-        "sDom": '<""l>t<"F"fp>'
+
     });
 </script>

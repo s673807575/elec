@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:include page="../commpage/top.jsp"></jsp:include>
+<jsp:include page="top.jsp"></jsp:include>
 <script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-2.0.0.min.js"></script>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <script type="text/javascript">
@@ -56,4 +56,4 @@
                 </div>
             </div>
 
-<jsp:include page="../commpage/bottom.jsp"></jsp:include>
+<jsp:include page="bottom.jsp"></jsp:include>

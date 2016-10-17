@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-2.0.0.min.js"></script>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<jsp:include page="../commpage/top.jsp"></jsp:include>
+<jsp:include page="top.jsp"></jsp:include>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <script type="text/javascript">
 
@@ -17,6 +17,7 @@
         });
     })
 </script>
+<input type="hidden" id="_index" value="2">
     <div class="container-fluid">
         <hr>
         <div class="row-fluid">
@@ -59,4 +60,4 @@
                     </div>
                 </div>
 
-<jsp:include page="../commpage/bottom.jsp"></jsp:include>
+<jsp:include page="bottom.jsp"></jsp:include>

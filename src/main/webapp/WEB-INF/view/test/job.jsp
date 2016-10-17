@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<jsp:include page="../commpage/top.jsp"></jsp:include>
+<jsp:include page="top.jsp"></jsp:include>
 <input type="hidden" id="_index" value="1">
     <div>
         <table>
@@ -26,7 +26,7 @@
             </c:forEach>
         </table>
     </div>
-<jsp:include page="../commpage/bottom.jsp"></jsp:include>
+<jsp:include page="bottom.jsp"></jsp:include>
 <script>
     function job(jid) {
         window.location.href="/form?jid="+jid;

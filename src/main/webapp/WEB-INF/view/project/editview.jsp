@@ -1,5 +1,6 @@
-<jsp:include page="../commpage/top.jsp"></jsp:include>
+<jsp:include page="top.jsp"></jsp:include>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div>
     <h1>修改项目</h1>
     <div class="row-fluid">
@@ -26,13 +27,13 @@
             <div class="control-group">
                 <label class="control-label">起始时间 :</label>
                 <div class="controls">
-                    <input type="date" class="span11" name="startTime" value="2016-10-07 00:00:00"/>
+                    <input type="date" class="span11" name="startTime" value="<fmt:formatDate value="${a.startTime}" pattern="yyyy-MM-dd"/>">/>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">结束时间 :</label>
                 <div class="controls">
-                    <input type="date" class="span11" name="endTime" value="2016-10-08 00:00:00"/>
+                    <input type="date" class="span11" name="endTime" value="<fmt:formatDate value="${a.endTime}" pattern="yyyy-MM-dd"/>">/>
                 </div>
             </div>
             <div class="control-group">
@@ -60,4 +61,4 @@
 
 </div>
 </div>
-<jsp:include page="../commpage/bottom.jsp"></jsp:include>
+<jsp:include page="bottom.jsp"></jsp:include>

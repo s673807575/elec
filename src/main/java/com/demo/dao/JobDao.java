@@ -23,6 +23,12 @@ public interface JobDao {
     @ResultMap("BaseResultMap")
     List<Job> selectByPro(Integer pid);
 
+    @Select({
+            "select * from job"
+    })
+    @ResultMap("BaseResultMap")
+    List<Job> selecALL();
+
     @Insert({
         "insert into job (jid, pid, ",
         "jcontent, jstatus)",

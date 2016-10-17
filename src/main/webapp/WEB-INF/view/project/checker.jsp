@@ -1,8 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:include page="../commpage/top.jsp"></jsp:include>
+<jsp:include page="top.jsp"></jsp:include>
 <script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-2.0.0.min.js"></script>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<input type="hidden" id="_index" value="5">
 <script type="text/javascript">
 
     $(function(){
@@ -67,4 +68,4 @@
                 </div>
             </div>
 
-            <jsp:include page="../commpage/bottom.jsp"></jsp:include>
+            <jsp:include page="bottom.jsp"></jsp:include>

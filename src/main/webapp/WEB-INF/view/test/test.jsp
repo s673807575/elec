@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<jsp:include page="../commpage/top.jsp"></jsp:include>
+<jsp:include page="top.jsp"></jsp:include>
 <input type="hidden" id="_index" value="1">
     <div>
         <table>
@@ -26,7 +26,7 @@
                     <td><fmt:formatDate value="${i.endTime}" pattern="yyyy年MM月dd日"/></td>
                     <td>${i.devicemess}</td>
                     <td><button type="button" onclick="job(${i.id})">工作</button> </td>
-                    <c:if test="${i.isqualified==1}">
+                    <c:if test="${i.isqualified==3}">
                         <c:if test="${i.report.status!=1}">
                             <td><button type="button" onclick="report(${i.id})">修试报告</button></td>
                         </c:if>
@@ -34,14 +34,14 @@
                             审阅通过
                         </c:if>
                     </c:if>
-                    <c:if test="${i.isqualified==0}">
+                    <c:if test="${i.isqualified==2}">
                         <td>请先完成所有工作</td>
                     </c:if>
                 </tr>
             </c:forEach>
         </table>
     </div>
-<jsp:include page="../commpage/bottom.jsp"></jsp:include>
+<jsp:include page="bottom.jsp"></jsp:include>
 <script>
     function job(pid) {
         window.location.href="/job?pid="+pid;

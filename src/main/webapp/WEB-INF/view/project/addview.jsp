@@ -1,5 +1,6 @@
-<jsp:include page="../commpage/top.jsp"></jsp:include>
+<jsp:include page="top.jsp"></jsp:include>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<input type="hidden" id="_index" value="1">
 <div>
     <h1>增加项目</h1>
     <div class="row-fluid">
@@ -50,4 +51,4 @@
 
     </div>
         </div>
-<jsp:include page="../commpage/bottom.jsp"></jsp:include>
+<jsp:include page="bottom.jsp"></jsp:include>

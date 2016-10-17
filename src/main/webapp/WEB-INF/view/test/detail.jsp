@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<jsp:include page="../commpage/top.jsp"></jsp:include>
+<jsp:include page="top.jsp"></jsp:include>
 <input type="hidden" id="_index" value="2">
     <div>
 
@@ -56,7 +56,7 @@
             <td colspan="2"><input type="button" onclick="edit('${pro_message.id}')" value="编辑"> <input type="button" value="返回" onclick="job()"></td>
         </tr>
     </div>
-<jsp:include page="../commpage/bottom.jsp"></jsp:include>
+<jsp:include page="bottom.jsp"></jsp:include>
 <script>
     function job() {
         window.location.href="/test";

@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-2.0.0.min.js"></script>
-<jsp:include page="../commpage/top.jsp"></jsp:include>
+<jsp:include page="top.jsp"></jsp:include>
 <script>
 
     $(function(){
@@ -77,8 +77,8 @@
             </c:forEach>
         </table>
         <tr>
-            <button class="btn btn-primary btn-mini"  value="${pro_message.id}">通 过</button> <button class="btn btn-danger btn-mini" value="${pro_message.id}">不通过</button>
+            <button class="btn btn-primary btn-mini"  value="${pro_message.report.rid}">通 过</button> <button class="btn btn-danger btn-mini" value="${pro_message.report.rid}">不通过</button>
             <%--<td colspan="2"><input type="button" onclick="edit('${pro_message.id}')" value="编辑"> <input type="button" value="返回" onclick="job()"></td>--%>
         </tr>
     </div>
-<jsp:include page="../commpage/bottom.jsp"></jsp:include>
+<jsp:include page="bottom.jsp"></jsp:include>
